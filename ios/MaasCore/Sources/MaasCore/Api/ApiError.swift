@@ -24,4 +24,13 @@ public enum ApiError: Swift.Error, Equatable, Hashable {
      - Parameter developerMessage: optional message to help identify the error.
      */
     case failure(developerMessage: String?)
+
+    public var developerMessage: String? {
+        switch self {
+        case .unauthorized(let error): return error?.developerMessage
+        case .forbidden(error: let error): return error?.developerMessage
+        case .error(let error): return error?.developerMessage
+        case .failure(let error): return error
+        }
+    }
 }

@@ -21,9 +21,9 @@ import kotlinx.serialization.internal.CommonEnumSerializer
  */
 @Serializable
 data class Identity(
-    @SerialName(value = "verificationStatus") @Required val verificationStatus: Identity.VerificationStatus,
-    @SerialName(value = "verificationMessageKey") val verificationMessageKey: kotlin.String? = null,
-    @SerialName(value = "verificationFallbackMessage") val verificationFallbackMessage: kotlin.String? = null
+    @SerialName(value = "verificationStatus") @Required var verificationStatus: Identity.VerificationStatus,
+    @SerialName(value = "verificationMessageKey") var verificationMessageKey: kotlin.String? = null,
+    @SerialName(value = "verificationFallbackMessage") var verificationFallbackMessage: kotlin.String? = null
 ) {
 
     /**

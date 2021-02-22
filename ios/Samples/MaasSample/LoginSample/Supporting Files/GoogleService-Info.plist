@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>770215742556-huv0375f901csuvpocjdm59becafa1o7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.770215742556-huv0375f901csuvpocjdm59becafa1o7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDSbesBIzHhb_ZX4zxRw33qI30LmjL4ogo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>770215742556</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.maas.samples</string>
+	<key>PROJECT_ID</key>
+	<string>bedrock-firebase-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bedrock-firebase-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:770215742556:ios:185b211acc131175072a99</string>
+</dict>
+</plist>

@@ -25,13 +25,13 @@ import kotlinx.serialization.internal.CommonEnumSerializer
  */
 @Serializable
 data class DrivingLicence(
-    @SerialName(value = "categories") @Required val categories: kotlin.collections.List<DrivingLicenceCategory>,
-    @SerialName(value = "verificationStatus") @Required val verificationStatus: DrivingLicence.VerificationStatus,
-    @SerialName(value = "licenceNumber") val licenceNumber: kotlin.String? = null,
-    @SerialName(value = "issuedAt") val issuedAt: kotlin.String? = null,
-    @SerialName(value = "expiresAt") val expiresAt: kotlin.String? = null,
-    @SerialName(value = "verificationMessageKey") val verificationMessageKey: kotlin.String? = null,
-    @SerialName(value = "verificationFallbackMessage") val verificationFallbackMessage: kotlin.String? = null
+    @SerialName(value = "categories") @Required var categories: kotlin.collections.List<DrivingLicenceCategory>,
+    @SerialName(value = "verificationStatus") @Required var verificationStatus: DrivingLicence.VerificationStatus,
+    @SerialName(value = "licenceNumber") var licenceNumber: kotlin.String? = null,
+    @SerialName(value = "issuedAt") var issuedAt: kotlin.String? = null,
+    @SerialName(value = "expiresAt") var expiresAt: kotlin.String? = null,
+    @SerialName(value = "verificationMessageKey") var verificationMessageKey: kotlin.String? = null,
+    @SerialName(value = "verificationFallbackMessage") var verificationFallbackMessage: kotlin.String? = null
 ) {
 
     /**

@@ -71,7 +71,6 @@ public struct Button: View, Swappable {
         .foregroundColor(foregroundColor)
         .background(backgroundColor)
         .cornerRadius(buttonConstants.cornerRadius)
-        .animation(animation)
     }
     
     private var text: some View {

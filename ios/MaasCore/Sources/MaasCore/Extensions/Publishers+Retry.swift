@@ -1,8 +1,9 @@
 import Combine
 
 // inspiration: https://www.wwt.com/article/creating-your-own-custom-combine-operator
+
 extension Publishers {
-    
+
     // A publisher that attempts to recreate its subscription to a failed upstream publisher.
     public struct RetryWithRecovery<Upstream: Publisher, RecoveryPublisher: Publisher>: Publisher {
         

@@ -26,13 +26,13 @@ import kotlinx.serialization.*
  */
 @Serializable
 data class User(
-    @SerialName(value = "id") @Required val id: kotlin.String,
-    @SerialName(value = "identity") @Required val identity: Identity,
-    @SerialName(value = "profile") @Required val profile: Profile,
-    @SerialName(value = "phoneNumber") @Required val phoneNumber: PhoneNumber,
-    @SerialName(value = "providerAccounts") @Required val providerAccounts: kotlin.collections.List<ProviderAccount>,
-    @SerialName(value = "drivingLicence") @Required val drivingLicence: DrivingLicence,
-    @SerialName(value = "terms") @Required val terms: UserTerms,
-    @SerialName(value = "paymentMethods") val paymentMethods: PaymentMethods? = null,
-    @SerialName(value = "memberships") val memberships: kotlin.collections.List<Membership>? = null
+    @SerialName(value = "id") @Required var id: kotlin.String,
+    @SerialName(value = "identity") @Required var identity: Identity,
+    @SerialName(value = "profile") @Required var profile: Profile,
+    @SerialName(value = "phoneNumber") @Required var phoneNumber: PhoneNumber,
+    @SerialName(value = "providerAccounts") @Required var providerAccounts: kotlin.collections.List<ProviderAccount>,
+    @SerialName(value = "drivingLicence") @Required var drivingLicence: DrivingLicence,
+    @SerialName(value = "terms") @Required var terms: UserTerms,
+    @SerialName(value = "paymentMethods") var paymentMethods: PaymentMethods? = null,
+    @SerialName(value = "memberships") var memberships: kotlin.collections.List<Membership>? = null
 )

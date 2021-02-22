@@ -19,6 +19,6 @@ import kotlinx.serialization.*
  */
 @Serializable
 data class PaymentMethods(
-    @SerialName(value = "defaultMethodId") @Required val defaultMethodId: kotlin.String,
-    @SerialName(value = "methods") @Required val methods: kotlin.collections.List<PaymentMethod>
+    @SerialName(value = "defaultMethodId") @Required var defaultMethodId: kotlin.String,
+    @SerialName(value = "methods") @Required var methods: kotlin.collections.List<PaymentMethod>
 )

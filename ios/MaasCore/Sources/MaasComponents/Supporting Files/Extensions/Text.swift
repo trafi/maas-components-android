@@ -9,6 +9,14 @@ public extension Text {
         let dot = " • "
         return .init(spacedOut ? dot.trimmingCharacters(in: .whitespaces) : dot)
     }
+
+    /**
+     Shortcut for ** " " ** space seperator.
+     */
+    static func space() -> Text {
+        let space = " "
+        return .init(space)
+    }
 }
 
 public extension Array where Element == Text {
