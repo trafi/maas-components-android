@@ -1,7 +1,11 @@
 package com.trafi.sample
 
 import com.trafi.core.ApiResult
-import com.trafi.sample.SampleAction.*
+import com.trafi.sample.SampleAction.DecrementButtonTapped
+import com.trafi.sample.SampleAction.FactAlertDismissed
+import com.trafi.sample.SampleAction.IncrementButtonTapped
+import com.trafi.sample.SampleAction.NumberFactButtonTapped
+import com.trafi.sample.SampleAction.NumberFactResponse
 import com.trafi.state.Effect
 import com.trafi.state.State
 import com.trafi.state.effect

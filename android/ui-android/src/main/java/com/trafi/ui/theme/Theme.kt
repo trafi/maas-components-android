@@ -2,9 +2,7 @@ package com.trafi.ui.theme
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Providers
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.staticAmbientOf
 
 @Composable
 public fun MaasTheme(
@@ -15,39 +13,33 @@ public fun MaasTheme(
     content: @Composable () -> Unit
 ) {
     val colorPalette = remember { colors }.apply { updateColorsFrom(colors) }
-    Providers(
-        AmbientColor provides colorPalette,
-        AmbientTypography provides typography,
-        AmbientSpacing provides spacing,
-        AmbientCornerRadius provides cornerRadius
-    ) {
+
         MaterialTheme(
             colors = colors.materialColors,
             typography = typography.materialTypography,
             shapes = cornerRadius.materialShapes,
             content = content
         )
-    }
 }
 
 public object MaasTheme {
     public val colors: MaasColorPalette
-        @Composable get() = AmbientColor.current
+        @Composable get() = AmbientColor
 
     public val typography: MaasTypography
-        @Composable get() = AmbientTypography.current
+        @Composable get() = AmbientTypography
 
     public val spacing: MaasSpacing
-        @Composable get() = AmbientSpacing.current
+        @Composable get() = AmbientSpacing
 
     public val cornerRadius: MaasCornerRadius
-        @Composable get() = AmbientCornerRadius.current
+        @Composable get() = AmbientCornerRadius
 }
 
-private val AmbientColor = staticAmbientOf { MaasTheme.lightColors() }
+private val AmbientColor = MaasTheme.lightColors()
 
-private val AmbientTypography = staticAmbientOf { MaasTypography() }
+private val AmbientTypography = MaasTypography()
 
-private val AmbientSpacing = staticAmbientOf { MaasSpacing() }
+private val AmbientSpacing = MaasSpacing()
 
-private val AmbientCornerRadius = staticAmbientOf { MaasCornerRadius() }
+private val AmbientCornerRadius = MaasCornerRadius()

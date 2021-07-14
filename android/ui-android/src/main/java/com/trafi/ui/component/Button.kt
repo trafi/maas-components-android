@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSizeConstraints
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -81,8 +81,7 @@ public fun Button(
             end = constants.paddingHorizontal,
             bottom = if (small) constants.paddingVerticalSmall else constants.paddingVertical,
         ),
-        modifier = modifier
-            .defaultMinSizeConstraints(minHeight = if (small) constants.heightSmall else constants.height)
+        modifier = modifier.defaultMinSize(minHeight = if (small) constants.heightSmall else constants.height)
             .run { if (wrapped) this else fillMaxWidth() }
     ) {
         @Suppress("NAME_SHADOWING")

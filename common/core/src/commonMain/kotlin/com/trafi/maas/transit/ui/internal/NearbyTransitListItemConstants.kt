@@ -1,6 +1,8 @@
 package com.trafi.maas.transit.ui.internal
 
-import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.*
+import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.ExtraLarge
+import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.Large
+import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.Normal
 import com.trafi.ui.theme.internal.CurrentTheme
 import com.trafi.ui.theme.internal.SpacingScale
 

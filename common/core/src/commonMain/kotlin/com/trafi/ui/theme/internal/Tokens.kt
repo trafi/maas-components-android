@@ -1,6 +1,12 @@
 package com.trafi.ui.theme.internal
 
-import com.trafi.ui.theme.internal.type.*
+import com.trafi.ui.theme.internal.type.BasicFontWeight
+import com.trafi.ui.theme.internal.type.Color
+import com.trafi.ui.theme.internal.type.Shadow
+import com.trafi.ui.theme.internal.type.ShadowStyle
+import com.trafi.ui.theme.internal.type.alpha
+import com.trafi.ui.theme.internal.type.dark
+import com.trafi.ui.theme.internal.type.dp
 
 object ColorPalette {
     val White = Color(0xffffffff)

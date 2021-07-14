@@ -1,15 +1,12 @@
 package com.trafi.ui.component
 
-import androidx.compose.foundation.InteractionState
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.preferredSizeIn
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.AmbientContentAlpha
-import androidx.compose.material.AmbientContentColor
-import androidx.compose.material.AmbientTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -17,18 +14,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.focus.isFocused
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.node.Ref
-import androidx.compose.ui.text.SoftwareKeyboardController
+import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
@@ -38,12 +35,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.trafi.ui.theme.MaasTheme
 
+@ExperimentalComposeUiApi
 @Composable
 public fun OutlinedTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = AmbientTextStyle.current,
+    textStyle: TextStyle = TextStyle.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     onImeActionPerformed: (ImeAction, SoftwareKeyboardController?) -> Unit = { _, _ -> },
@@ -62,7 +60,7 @@ public fun OutlinedTextField(
         .padding(horizontal = 12.dp, vertical = 8.dp)
         .focusRequester(focusRequester)
         .onFocusChanged { isFocused = it.isFocused }
-        .clickable(interactionState = remember { InteractionState() }, indication = null) {
+        .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) {
             focusRequester.requestFocus()
             // TODO(b/163109449): Showing and hiding keyboard should be handled by BaseTextField.
             //  The requestFocus() call here should be enough to trigger the software keyboard.
@@ -92,12 +90,12 @@ public fun OutlinedTextField(
     }
 
     val textColor = textStyle.color.takeOrElse {
-        AmbientContentColor.current.copy(alpha = AmbientContentAlpha.current)
+        TextStyle.Default.color
     }
 
     Row(
         modifier = modifier
-            .preferredSizeIn(
+            .sizeIn(
                 minWidth = TextFieldMinWidth,
                 minHeight = TextFieldMinHeight
             )
@@ -106,28 +104,29 @@ public fun OutlinedTextField(
     ) {
         BasicTextField(
             value = textFieldValue,
-            onValueChange = {
-                textFieldValueState = it
-                if (value != it.text) {
-                    onValueChange(it.text)
+            onValueChange = { textFieldValue ->
+                textFieldValueState = textFieldValue
+                if (value != textFieldValue.text) {
+                    onValueChange(textFieldValue.text)
                 }
             },
-            modifier = textFieldModifier,
-            textStyle = textStyle.copy(color = textColor),
-            keyboardOptions = keyboardOptions,
-            onImeActionPerformed = {
-                onImeActionPerformed(it, keyboardController.value)
-            },
-            visualTransformation = visualTransformation,
-            onTextInputStarted = {
-                keyboardController.value = it
-                onTextInputStarted(it)
-            },
-            cursorColor = activeColor,
+//            modifier = textFieldModifier,
+//            textStyle = textStyle.copy(color = textColor),
+//            keyboardOptions = keyboardOptions,
+//            onImeActionPerformed = { imeAction, _->
+//                onImeActionPerformed(imeAction, keyboardController.value)
+//            },
+//            visualTransformation = visualTransformation,
+//            onTextInputStarted = { softwareKeyboardController ->
+//                keyboardController.value = softwareKeyboardController
+//                onTextInputStarted(softwareKeyboardController)
+//            },
+//            cursorColor = activeColor,
         )
     }
 }
 
+@ExperimentalComposeUiApi
 @Preview(showBackground = true, backgroundColor = 0xFFFFFF)
 @Composable
 private fun OutlinedTextFieldPreview() {

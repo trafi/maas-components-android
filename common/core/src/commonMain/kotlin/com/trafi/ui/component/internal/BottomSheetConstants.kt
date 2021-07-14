@@ -1,7 +1,12 @@
 package com.trafi.ui.component.internal
 
-import com.trafi.ui.theme.internal.*
-import com.trafi.ui.theme.internal.type.*
+import com.trafi.ui.theme.internal.ColorPalette
+import com.trafi.ui.theme.internal.CornerRadiusScale
+import com.trafi.ui.theme.internal.CurrentTheme
+import com.trafi.ui.theme.internal.ShadowPalette
+import com.trafi.ui.theme.internal.SpacingScale
+import com.trafi.ui.theme.internal.type.BasicFontWeight
+import com.trafi.ui.theme.internal.type.Dp
 import com.trafi.ui.theme.internal.type.alpha
 import com.trafi.ui.theme.internal.type.copy
 import com.trafi.ui.theme.internal.type.dp

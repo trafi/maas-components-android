@@ -4,17 +4,18 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ConstraintLayout
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.trafi.ui.component.Button
 import com.trafi.ui.component.SecondaryButton
 import com.trafi.ui.theme.MaasTheme
@@ -26,7 +27,7 @@ fun WelcomeScreen(
     onLaterClick: () -> Unit,
     onContinueWithGoogleClick: () -> Unit,
 ) {
-    val asset = vectorResource(id = R.drawable.waving_hand)
+    val asset = ImageVector.vectorResource(id = R.drawable.waving_hand)
     ConstraintLayout(
         modifier = Modifier
             .background(MaasTheme.colors.background)

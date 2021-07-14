@@ -1,9 +1,9 @@
 package com.trafi.sample
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.platform.setContent
 import androidx.lifecycle.lifecycleScope
 import com.trafi.sample.GoogleSignInAction.OneTapSignIn
 import com.trafi.sample.GoogleSignInAction.SignIn

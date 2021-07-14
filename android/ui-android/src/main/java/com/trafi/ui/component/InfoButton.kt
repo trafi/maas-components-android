@@ -12,6 +12,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
@@ -63,7 +64,7 @@ public fun InfoButton(
         }
     ) {
         Icon(
-            imageVector = vectorResource(id = iconRes),
+            imageVector = ImageVector.vectorResource(id = iconRes),
             contentDescription = null,
             modifier = modifier
                 .padding(end = constants.spaceBetween)

@@ -3,7 +3,7 @@ package com.trafi.ui.component.internal
 import com.trafi.ui.theme.internal.CornerRadiusScale
 import com.trafi.ui.theme.internal.CurrentTheme
 import com.trafi.ui.theme.internal.SpacingScale
-import com.trafi.ui.theme.internal.type.BasicFontWeight.*
+import com.trafi.ui.theme.internal.type.BasicFontWeight.Bold
 import com.trafi.ui.theme.internal.type.copy
 import com.trafi.ui.theme.internal.type.dp
 

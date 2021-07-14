@@ -3,7 +3,6 @@ package com.trafi.sample
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.trafi.core.AndroidLogger
 import com.trafi.core.ApiConfiguration

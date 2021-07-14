@@ -11,7 +11,7 @@ at this time, but some small contributions are welcome.
 ## Android & Kotlin multiplatform
 
 ### Set up Android Studio
-1. [Install Android Studio][install-as] version Arctic Fox (2020.3.1) Canary 7
+1. [Install Android Studio][install-as] version Arctic Fox (2020.3.1) Beta 5
 1. [Install the Kotlin Multiplatform Mobile plugin][install-kmm-plugin]
 
 ### Launch sample apps

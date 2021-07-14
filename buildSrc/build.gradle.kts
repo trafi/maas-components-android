@@ -10,7 +10,7 @@ repositories {
     mavenCentral()
 }
 
-val versions = loadProperties("$projectDir/src/main/resources/versions.properties")
+val versions = loadProperties("$projectDir/src/main/resources/build_src_versions.properties")
 
 dependencies {
     implementation("com.android.tools.build:gradle:${versions["version.androidGradlePlugin"]}")

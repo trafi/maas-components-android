@@ -2,14 +2,13 @@ package com.trafi.routes.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSizeConstraints
-import androidx.compose.material.AmbientContentColor
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,7 +38,7 @@ public fun RouteSegment(segment: RouteSegment, modifier: Modifier = Modifier) {
             val transit = segment.transit ?: return
             val badge = transit.schedule.toBadgeInfo()
             val alternativeBadges = transit.alternatives.map { it.schedule.toBadgeInfo() }
-            val vector = vectorResource(
+            val vector = ImageVector.vectorResource(
                 when (transit.schedule.transportType) {
                     "ubahn" -> R.drawable.providers_ubahn_xs
                     "sbahn" -> R.drawable.providers_sbahn_xs
@@ -61,7 +60,7 @@ public fun RouteSegment(segment: RouteSegment, modifier: Modifier = Modifier) {
         RouteSegment.Mode.RIDE_HAILING -> {
             val hailing = segment.rideHailing ?: return
             val badge = hailing.provider?.toBadgeInfo()
-            val vector = vectorResource(
+            val vector = ImageVector.vectorResource(
                 when (hailing.provider?.icon) {
                     "berlkonig" -> R.drawable.providers_berlkonig_xs
                     else -> R.drawable.transport_taxi_xs
@@ -95,7 +94,7 @@ public fun RouteSegment(segment: RouteSegment, modifier: Modifier = Modifier) {
                     SharedVehicle.VehicleType.KICK_SCOOTER -> R.drawable.transport_kickscooter_xs
                 }
             }
-            val vector = (providerIconRes ?: transportIconRes)?.let { vectorResource(it) }
+            val vector = (providerIconRes ?: transportIconRes)?.let { ImageVector.vectorResource(it) }
             badge?.let {
                 Badge(
                     badge = it,
@@ -106,14 +105,14 @@ public fun RouteSegment(segment: RouteSegment, modifier: Modifier = Modifier) {
             }
         }
         RouteSegment.Mode.WALKING -> {
-            val vector = vectorResource(R.drawable.ic_route_search_walking_s)
+            val vector = ImageVector.vectorResource(R.drawable.ic_route_search_walking_s)
             val durationMillis = segment.endTimeMillis - segment.startTimeMillis
-            Row(modifier = modifier.defaultMinSizeConstraints(minHeight = 24.dp)) {
+            Row(modifier = modifier.defaultMinSize(minHeight = 24.dp)) {
                 Image(
                     vector,
                     contentDescription = null,
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    colorFilter = ColorFilter.tint(AmbientContentColor.current)
+                    // colorFilter = ColorFilter.tint(AmbientContentColor.current)
                 )
                 Text(
                     text = durationMillis.millisToDurationText,
@@ -125,19 +124,19 @@ public fun RouteSegment(segment: RouteSegment, modifier: Modifier = Modifier) {
         }
         RouteSegment.Mode.PERSONAL_VEHICLE -> {
             val personalVehicle = segment.personalVehicle ?: return
-            val vector = vectorResource(
+            val vector = ImageVector.vectorResource(
                 when (personalVehicle.vehicle) {
                     PersonalVehicleType.BICYCLE -> R.drawable.ic_route_search_bike_s
                     PersonalVehicleType.KICK_SCOOTER -> R.drawable.ic_route_search_scooter_s
                 }
             )
             val durationMillis = segment.endTimeMillis - segment.startTimeMillis
-            Row(modifier = modifier.defaultMinSizeConstraints(minHeight = 24.dp)) {
+            Row(modifier = modifier.defaultMinSize(minHeight = 24.dp)) {
                 Image(
                     vector,
                     contentDescription = null,
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    colorFilter = ColorFilter.tint(AmbientContentColor.current)
+                    // colorFilter = ColorFilter.tint(AmbientContentColor.current)
                 )
                 Text(
                     text = durationMillis.millisToDurationText,

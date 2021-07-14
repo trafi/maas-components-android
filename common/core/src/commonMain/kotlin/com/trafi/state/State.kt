@@ -4,7 +4,7 @@ package com.trafi.state
 
 import com.trafi.core.CFlow
 import com.trafi.core.wrap
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
 
 interface State<S : State<S, Action, Environment>, Action : Any, Environment> {
     fun reduce(action: Action, environment: Environment): Pair<S, Effect<Action>>

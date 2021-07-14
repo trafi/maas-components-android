@@ -42,7 +42,7 @@ open class CommonEnumSerializer<T>(
     override val descriptor: SerialDescriptor
         get() = buildSerialDescriptor(serialName, SerialKind.ENUM) {
             choicesNames.forEach { name ->
-                val fqn = "$serialName.${name}"
+                val fqn = "$serialName.$name"
                 val enumMemberDescriptor = buildSerialDescriptor(fqn, StructureKind.OBJECT)
                 element(name, enumMemberDescriptor)
             }

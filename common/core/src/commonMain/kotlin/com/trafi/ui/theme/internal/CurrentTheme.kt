@@ -1,7 +1,9 @@
 package com.trafi.ui.theme.internal
 
 import com.trafi.ui.theme.GrayScale
-import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.*
+import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.ExtraLarge
+import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.Large
+import com.trafi.ui.theme.internal.CurrentAccessibilityFontScale.Normal
 import com.trafi.ui.theme.internal.type.Color
 import com.trafi.ui.theme.internal.type.Dp
 import com.trafi.ui.theme.internal.type.TextStyle

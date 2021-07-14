@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,7 +20,7 @@ import com.trafi.ui.theme.MaasTheme
 
 @Composable
 fun OnboardingScreen(onComplete: () -> Unit = {}) {
-    val asset = vectorResource(id = R.drawable.onboarding_visual)
+    val asset = ImageVector.vectorResource(id = R.drawable.onboarding_visual)
     Column(
         modifier = Modifier
             .background(MaasTheme.colors.background)

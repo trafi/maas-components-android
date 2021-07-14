@@ -1,7 +1,7 @@
 package com.trafi.sample
 
-import androidx.compose.foundation.Interaction
-import androidx.compose.foundation.InteractionState
+// import androidx.compose.foundation.Interaction
+// import androidx.compose.foundation.InteractionState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +22,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.trafi.core.model.Profile
@@ -77,16 +78,18 @@ fun ProfileScreen(
         TertiaryButton(
             text = if (updateInProgress) "Updating.." else "Update",
             onClick = {
-                onUpdateProfileClick(Profile(
-                    gender = profile?.gender ?: Profile.Gender.NOT_SPECIFIED,
-                    ext = profile?.ext.orEmpty(),
-                    firstName = name,
-                    lastName = surname,
-                    displayName = profile?.displayName,
-                    email = profile?.email,
-                    address = profile?.address,
-                    birthDate = profile?.birthDate,
-                ))
+                onUpdateProfileClick(
+                    Profile(
+                        gender = profile?.gender ?: Profile.Gender.NOT_SPECIFIED,
+                        ext = profile?.ext.orEmpty(),
+                        firstName = name,
+                        lastName = surname,
+                        displayName = profile?.displayName,
+                        email = profile?.email,
+                        address = profile?.address,
+                        birthDate = profile?.birthDate,
+                    )
+                )
             },
             loading = updateInProgress,
             enabled = !updateInProgress,
@@ -110,36 +113,27 @@ private fun Input(
     modifier: Modifier = Modifier,
     readOnly: Boolean = false,
 ) {
-    val interactionState = remember { InteractionState() }
-    val isFocused = interactionState.contains(Interaction.Focused)
     TextField(
         value = text,
         onValueChange = onTextChange,
         label = { Text(label) },
         readOnly = readOnly,
         singleLine = true,
-        interactionState = interactionState,
-        trailingIcon = if (text.isNotEmpty() && isFocused) {
+        trailingIcon = if (text.isNotEmpty()) {
             {
                 Icon(
-                    vectorResource(id = R.drawable.input_fields_remove),
+                    ImageVector.vectorResource(id = R.drawable.input_fields_remove),
                     contentDescription = "Clear",
                     modifier = Modifier.clickable { onTextChange("") }
                 )
             }
         } else null,
-        backgroundColor = if (isFocused) {
-            MaasTheme.colors.grayScale.gray300
-        } else {
-            MaasTheme.colors.grayScale.gray100
-        },
         shape = MaterialTheme.shapes.small.copy(
-            topLeft = CornerSize(CornerRadiusScale.lg),
-            topRight = CornerSize(CornerRadiusScale.lg),
-            bottomLeft = ZeroCornerSize,
-            bottomRight = ZeroCornerSize,
+            topStart = CornerSize(CornerRadiusScale.lg),
+            topEnd = CornerSize(CornerRadiusScale.lg),
+            bottomStart = ZeroCornerSize,
+            bottomEnd = ZeroCornerSize,
         ),
-        modifier = modifier,
     )
 }
 

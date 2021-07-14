@@ -3,7 +3,7 @@ package com.trafi.routes.ui.internal
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSizeConstraints
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -73,7 +73,7 @@ private fun LocationResult(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .defaultMinSizeConstraints(minHeight = 60.dp)
+                .defaultMinSize(minHeight = 60.dp)
                 .padding(horizontal = MaasTheme.spacing.globalMargin, vertical = 12.dp)
         ) {
             Icon(

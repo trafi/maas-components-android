@@ -5,8 +5,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.ConstraintLayout
-import androidx.compose.foundation.layout.ExperimentalLayout
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -27,6 +25,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.trafi.ui.R
 import com.trafi.ui.component.BadgeType.Medium
 import com.trafi.ui.component.BadgeType.Small
@@ -49,7 +48,6 @@ public enum class BadgeType {
     Medium,
 }
 
-@OptIn(ExperimentalLayout::class)
 @Composable
 public fun Badge(
     badge: BadgeInfo,
@@ -80,7 +78,6 @@ public fun Badge(
     }
 }
 
-@OptIn(ExperimentalLayout::class)
 @Composable
 private fun SingleBadge(
     badge: BadgeInfo,
@@ -125,7 +122,6 @@ private fun SingleBadge(
     }
 }
 
-@OptIn(ExperimentalLayout::class)
 @Composable
 private fun StackedBadge(
     badge: BadgeInfo,
@@ -277,7 +273,7 @@ private fun Dp.plusIf(shouldInclude: Boolean, other: Dp) = if (shouldInclude) th
 public fun BadgePreview() {
     Badge(
         badge = BadgeInfo("5G", Color.Magenta),
-        icon = vectorResource(R.drawable.providers_ubahn_xs),
+        icon = ImageVector.vectorResource(R.drawable.providers_ubahn_xs),
         badgeType = Medium
     )
 }
@@ -288,8 +284,8 @@ public fun BadgePreview() {
 public fun BadgePreviewWithSubbadge() {
     Badge(
         badge = BadgeInfo("5G", Color.Magenta),
-        icon = vectorResource(R.drawable.providers_ubahn_xs),
-        subbadgeIcon = vectorResource(id = R.drawable.warning_warning_s),
+        icon = ImageVector.vectorResource(R.drawable.providers_ubahn_xs),
+        subbadgeIcon = ImageVector.vectorResource(id = R.drawable.warning_warning_s),
         badgeType = Medium
     )
 }
@@ -321,7 +317,7 @@ public fun SmallDisabledBadgePreview() {
 public fun SmallBadgeWithIconPreview() {
     Badge(
         badge = BadgeInfo("5G", Color.Magenta),
-        icon = vectorResource(R.drawable.providers_ubahn_xs),
+        icon = ImageVector.vectorResource(R.drawable.providers_ubahn_xs),
         badgeType = Small
     )
 }
@@ -345,7 +341,7 @@ public fun StackedBadgePreview() {
         alternativeBadges = listOf(
             BadgeInfo("5G", Color.Magenta),
         ),
-        icon = vectorResource(R.drawable.providers_ubahn_xs),
+        icon = ImageVector.vectorResource(R.drawable.providers_ubahn_xs),
         badgeType = Medium
     )
 }
@@ -361,7 +357,7 @@ public fun StackedBadgeDarkPreview() {
             alternativeBadges = listOf(
                 BadgeInfo("5G", Color.Magenta),
             ),
-            icon = vectorResource(R.drawable.providers_ubahn_xs),
+            icon = ImageVector.vectorResource(R.drawable.providers_ubahn_xs),
             badgeType = Medium
         )
     }
@@ -379,7 +375,7 @@ public fun StackedBadgePreviewWithSubbadge() {
             BadgeInfo("135", Color.Magenta),
             BadgeInfo("135", Color.Magenta),
             BadgeInfo("135", Color.Magenta)),
-        icon = vectorResource(R.drawable.providers_ubahn_xs),
+        icon = ImageVector.vectorResource(R.drawable.providers_ubahn_xs),
         badgeType = Medium
     )
 }
